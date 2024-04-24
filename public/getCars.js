@@ -1,5 +1,5 @@
 const getCars = async () => {
-  fetch("http://localhost:3300/api/cars")
+  await fetch("http://localhost:3300/api/cars")
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
