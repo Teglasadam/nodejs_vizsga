@@ -1,7 +1,7 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
-const carModel = require("./mongoose/schemas/carSchema");
+const carModel = require("./mongoose/schemas/car");
+const app = express();
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -15,8 +15,39 @@ mongoose
     console.log("Hiba a kapcsolat létrehozása során:", err);
   });
 
+app.post("/api/cars", async (req, res) => {
+  const {
+    carName,
+    carType,
+    carProductionDate,
+    carPrice,
+    carLink,
+    carDescription,
+  } = req.body;
+
+  const newCar = new carModel({
+    carName,
+    carType,
+    carProductionDate,
+    carPrice,
+    carLink,
+    carDescription,
+  });
+
+  try {
+    const savedCar = newCar.save();
+    res.status(201).json(savedCar);
+  } catch {
+    res.status(500).json("Hibás mentési folyamat.");
+  }
+});
+
 app.get("/", (req, res) => {
   res.sendFile("./view/index.html", { root: __dirname });
+});
+
+app.get("/cars", (req, res) => {
+  res.sendFile("./view/cars.html", { root: __dirname });
 });
 
 app.get("/api/cars", async (req, res) => {
