@@ -1,0 +1,26 @@
+{
+  "name": "nodejs_vizsga",
+  "version": "1.0.0",
+  "description": "Ez az app képes feltölteni autókat egy mongoDB adatbázisba, majd le is tudja kérni őket.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teglasadam/nodejs_vizsga.git"
+  },
+  "author": "Téglás Ádám",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teglasadam/nodejs_vizsga/issues"
+  },
+  "homepage": "https://github.com/Teglasadam/nodejs_vizsga#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2",
+    "node": "^18.20.2",
+    "nodemon": "^3.1.0"
+  }
+}
