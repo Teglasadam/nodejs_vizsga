@@ -26,4 +26,5 @@ document.querySelector("form").addEventListener("submit", (e) => {
     .then((data) => {
       console.table(data);
     });
+  document.querySelector("form").reset();
 });
