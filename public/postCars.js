@@ -8,23 +8,34 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let carLink = document.getElementById("carLink").value;
   let carDescription = document.getElementById("carDescription").value;
 
-  fetch("http://localhost:3300/api/cars", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      carName,
-      carType,
-      carProductionDate,
-      carPrice,
-      carLink,
-      carDescription,
-    }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.table(data);
-    });
+  if (
+    carName ||
+    carType ||
+    carProductionDate ||
+    carPrice ||
+    carLink ||
+    carDescription != ""
+  )
+    fetch("http://localhost:3300/api/cars", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        carName,
+        carType,
+        carProductionDate,
+        carPrice,
+        carLink,
+        carDescription,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.table(data);
+      });
+  else {
+    alert("Nem adtál meg adatot!");
+  }
   document.querySelector("form").reset();
 });
