@@ -1,3 +1,6 @@
+## Nálam a nodemon index parancs nem kapcsolódik az adatbázishoz. Csak a node index parancs működik!
+## Amennyiben nem adsz meg adatot valahol a szerver leáll és újra kell indítani!
+
 ## Ez az app képes MongoDB adatbázisba autókat felvinni egy form segítségével, majd kliens oldalon képes megjeleníteni az  adatokat.
 
 ## Használt tartozékok:
@@ -7,6 +10,5 @@
         "node": "^18.20.2",
         "nodemon": "^3.1.0"
       }
-
 
       
